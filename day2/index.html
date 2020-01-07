@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS + CSS Clock</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand min-hand"></div>
+        <div class="hand second-hand"></div>
+      </div>
+    </div>
+
+<script>
+    let secondHand = document.querySelector('.second-hand');
+    function setDate() {
+        let now = new Date();
+
+        let s = 90+(now.getSeconds()*6);
+        let m = 90+(now.getMinutes()*6);
+        let h = 90+(now.getHours()*30)+(0.5*now.getMinutes());
+        sHand = document.querySelector('.second-hand');
+        mHand = document.querySelector('.min-hand');
+        hHand = document.querySelector('.hour-hand');
+
+        sHand.style.transform = `rotate(${s}deg)`;
+        mHand.style.transform = `rotate(${m}deg)`;
+        hHand.style.transform = `rotate(${h}deg)`;
+    }
+
+    setInterval(setDate, 1000);
+
+</script>
+</body>
+</html>
